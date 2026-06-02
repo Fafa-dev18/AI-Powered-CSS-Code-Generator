@@ -7,7 +7,7 @@ An intuitive and efficient web application that utilizes Artificial Intelligence
 ## 📸 Preview
 
 <div align="center">
-  <img src="./assets/main-page.png" alt="AI CSS Generator Interface Preview" width="100%" max-width="800px"/>
+  <img src="./image.png" alt="AI CSS Generator Interface Preview" width="100%" max-width="800px"/>
 </div>
 
 ---
