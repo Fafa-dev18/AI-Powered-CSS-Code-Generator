@@ -1,3 +1,6 @@
+/* ==========================================
+   RESET & CONFIGURAÇÕES GERAIS
+   ========================================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,101 +9,188 @@
 }
 
 body {
-  background-color: rgb(19, 19, 19);
-  background-size: auto;
-  color: white;
-  padding: 16px;
+  background-color: #0d0e12; /* Fundo escuro profundo premium */
+  color: #f3f4f6;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   CABEÇALHO (HEADER)
+   ========================================== */
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 span {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+}
+
+.subtitulo {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* ==========================================
+   ÁREA DE INPUT (CONTÊINER PRINCIPAL)
+   ========================================== */
+.input-container {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(22, 23, 30, 0.6);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(12px); /* Efeito vidro */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-h1 {
-  font-size: 45px;
-  font-weight: bold;
-}
-
-p {
-  color: #e4b3ff;
-  font-size: 15px;
-  padding: 15px;
-}
-
 textarea {
-  font-size: 16px;
-  color: #e4b3ff;
+  font-size: 1rem;
+  color: #f3f4f6;
   resize: none;
   width: 100%;
-  max-width: 640px;
-  border: 1px solid #530080;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 15px;
+  height: 110px;
+  border: 1px solid #2d2f39;
+  border-radius: 14px;
+  padding: 18px;
   outline: none;
-  background: #1d2626;
+  background: #16171e;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
 }
 
-span {
-  color: #530080;
+textarea:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.15), 0 0 20px rgba(168, 85, 247, 0.1);
 }
 
+textarea::placeholder {
+  color: #4b5563;
+}
+
+/* BOTÃO GERAR IDEA */
 button {
-  padding: 16px;
+  padding: 16px 32px;
   color: white;
-  background: #530080;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
   width: 100%;
-  max-width: 640px;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
 }
 
 button:hover {
-  opacity: 0.4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  filter: brightness(1.1);
 }
 
 button:active {
-  background: rgb(255, 255, 255);
-  color: black;
+  transform: translateY(1px);
 }
 
-.resultado-codigo {
-  box-sizing: border-box;
-  display: block;
-  width: 800px;
-  height: 300px;
-  padding: 16px;
-  max-height: 350px;
-  border: 1px solid #530080;
-  border-radius: 12px;
-  background: #1d2626;
-  overflow: auto;
-  line-height: 2;
-  margin-top: 10px;
-  margin-bottom: 10px;
+button:disabled {
+  background: #2d2f39;
+  color: #6b7280;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
+/* ==========================================
+   GRID DE RESULTADOS (LADO A LADO)
+   ========================================== */
+.workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Coloca Código e Preview lado a lado */
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  background: #16171e;
+  border: 1px solid #2d2f39;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ÁREA DO CÓDIGO (ESTILO VS CODE) */
 .bloco-codigo {
-  box-sizing: border-box;
-  display: block;
-  width: 800px;
-  height: 200px;
+  flex: 1;
+  width: 100%;
   padding: 16px;
-  max-height: 350px;
-  border: 1px solid #530080;
-  border-radius: 12px;
-  background: #1d2626;
+  border-radius: 10px;
+  background: #090a0f;
   overflow: auto;
-  line-height: 2;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  color: #38bdf8; /* Azul claro estilo código */
+  white-space: pre-wrap;
+  line-height: 1.6;
+  border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-h2 {
-  font-size: 16px;
+/* IFRAME DO PREVIEW */
+.resultado-codigo {
+  flex: 1;
+  width: 100%;
+  border-radius: 10px;
+  background: #ffffff; /* Fundo branco interno para renderizar o componente como em um site real */
+  border: none;
+  overflow: auto;
+}
+
+/* RESPONSIVIDADE (Para telas menores/celular) */
+@media (max-width: 900px) {
+  .workspace-grid {
+    grid-template-columns: 1fr; /* Empilha um embaixo do outro no celular */
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .card {
+    height: 380px;
+  }
 }

@@ -15,22 +15,29 @@
 
   <body>
     <h1>Gerador de CSS <span>com IA✨</span></h1>
+    <p class="subtitulo">Gere suas ideias com um clique de mágica</p>
 
-    <p>Gerar suas ideias com um click de magica</p>
+    <div class="input-container">
+      <textarea
+        rows="3"
+        placeholder="Ex: bolinha azul quicando na tela"
+        class="caixa-texto"
+      ></textarea>
 
-    <textarea
-      rows="3"
-      placeholder="Ex:bolinha azul quicando"
-      class="caixa-texto"
-    ></textarea>
+      <button class="botao-gerar">Gerar ideia ✨</button>
+    </div>
 
-    <button class="botao-gerar">Gerar ideia✨</button>
+    <div class="workspace-grid">
+      <div class="card">
+        <h2>🛠️ Código Retornado</h2>
+        <p class="bloco-codigo">O código gerado aparecerá aqui...</p>
+      </div>
 
-    <h2>Codigo</h2>
-    <p class="bloco-codigo"></p>
-
-    <h2>Preview</h2>
-    <iframe class="resultado-codigo">Preview</iframe>
+      <div class="card">
+        <h2>👁️ Preview em Tempo Real</h2>
+        <iframe class="resultado-codigo"></iframe>
+      </div>
+    </div>
   </body>
   <script src="config.js"></script>
   <script src="scripts.js"></script>
